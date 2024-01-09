@@ -59,3 +59,26 @@ with col2:
     st.write("This plot is closing price  of the stock")
     st.line_chart(hist.Close)
 
+import pickle
+
+# with open("lr.pkl","wb") as f:
+#     pickle.dump(lr,f)
+
+# with open("lr.pkl","wb") as f:
+#     lr = pickle.load(f)
+
+
+from xgboost import XGBClassifier
+
+xgb = XGBClassifier()
+
+xgb.fit(x_train,y_train) #if it is huge file, it will take lot of space
+
+
+# with open("xgb.pkl","wb") as f:
+#     pickle.dump(xgb,f)
+
+with open("xgb.pkl","wb") as f:
+    xgb = pickle.load(f)
+
+xgb.predict(prediction_data)
